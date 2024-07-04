@@ -73,3 +73,9 @@ def delete(name: str) -> None:
         return service.delete(name)
     except Missing as exc:
         raise HTTPException(status_code=404, detail=exc.msg)
+
+
+from fastapi import File
+@router.post("/small")
+async def upload_small_file(f : bytes = File()) -> str :
+    return f"file size : {len(f)}"
