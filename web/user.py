@@ -41,7 +41,8 @@ def get_access_token(token: str = Depends(oauth2_dep)) -> dict:
     return {"token": token} # --- previous CRUD stuff
 
 @router.get("/")
-def get_all(token: str = Depends(oauth2_dep)) -> list[User]:
+#def get_all(token: str = Depends(oauth2_dep)) -> list[User]:
+def get_all() -> list[User]:
     return service.get_all()
 
 @router.get("/{name}")
